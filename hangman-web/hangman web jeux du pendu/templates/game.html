@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu du Pendu</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Jeu du Pendu</h1>
+    <p>Mot à deviner : {{.Word}}</p>
+    <p>Lettres essayées : {{.Attempts}}</p>
+    <p>Nombre de vies restantes : {{.Lives}}</p>
+
+    <img src="/static/images/pendu_{{.Lives}}.png" alt="Pendu">
+
+    <form action="/game" method="POST">
+        <label for="letter">Entrez une lettre :</label>
+        <input type="text" name="letter" maxlength="1" pattern="[A-Za-z]" required>
+        <button type="submit">Essayer</button>
+    </form>
+
+    <p>{{.Message}}</p>
+</body>
+</html>
+
